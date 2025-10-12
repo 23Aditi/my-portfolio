@@ -2,8 +2,11 @@
 
 import { useEffect } from 'react';
 
-const GlowCard = ({ children , identifier}) => {
+const GlowCard = ({ children, identifier }) => {
   useEffect(() => {
+    // ✅ Ensure this runs only in the browser
+    if (typeof window === 'undefined' || typeof document === 'undefined') return;
+
     const CONTAINER = document.querySelector(`.glow-container-${identifier}`);
     const CARDS = document.querySelectorAll(`.glow-card-${identifier}`);
 
@@ -42,14 +45,12 @@ const GlowCard = ({ children , identifier}) => {
           Math.PI;
 
         ANGLE = ANGLE < 0 ? ANGLE + 360 : ANGLE;
-
         CARD.style.setProperty('--start', ANGLE + 90);
       }
     };
 
-    document.body.addEventListener('pointermove', UPDATE);
-
     const RESTYLE = () => {
+      if (!CONTAINER) return;
       CONTAINER.style.setProperty('--gap', CONFIG.gap);
       CONTAINER.style.setProperty('--blur', CONFIG.blur);
       CONTAINER.style.setProperty('--spread', CONFIG.spread);
@@ -61,6 +62,8 @@ const GlowCard = ({ children , identifier}) => {
 
     RESTYLE();
     UPDATE();
+
+    document.body.addEventListener('pointermove', UPDATE);
 
     // Cleanup event listener
     return () => {
