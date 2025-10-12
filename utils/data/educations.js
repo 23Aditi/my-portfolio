@@ -1,20 +1,26 @@
 export const educations = [
   {
     id: 1,
-    title: "Bachelor Degree",
-    duration: "2020 - Present",
-    institution: "National University of Bangladesh",
+    title: "B.E. Information Technology",
+    duration: "Expected June 2027",
+    institution: "PICT, Pune",
+    location: "Pune, IN",
+    cgpa: "9.76"
   },
   {
     id: 2,
-    title: "Higher Secondary Certificate",
-    duration: "2018 - 2020",
-    institution: "Noakhali Islamia Kamil Madrasah",
+    title: "HSC",
+    duration: "Feb 2023",
+    institution: "A.P.S Khadakwasla",
+    location: "Pune, IN",
+    percentage: "93.2%"
   },
   {
     id: 3,
-    title: "Secondary School Certificate",
-    duration: "2008 - 2018",
-    institution: "Baitus Saif Islamia Madrasah",
+    title: "SSC",
+    duration: "Feb 2021",
+    institution: "A.P.S Delhi Cantt.",
+    location: "Pune, IN",
+    percentage: "96.8%"
   }
-]
+];
