@@ -11,9 +11,6 @@ const ScrollToTop = () => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    // Ensure code runs only in browser
-    if (typeof window === "undefined") return;
-
     const handleScroll = () => {
       setVisible(window.scrollY > SCROLL_THRESHOLD);
     };
@@ -29,15 +26,14 @@ const ScrollToTop = () => {
   }, []);
 
   const onClickBtn = () => {
-    if (typeof window !== "undefined") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
     <button
       className={`${DEFAULT_BTN_CLS} ${visible ? "" : "hidden"}`}
       onClick={onClickBtn}
+      aria-label="Scroll to top"
     >
       <FaArrowUp />
     </button>

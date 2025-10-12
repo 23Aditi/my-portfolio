@@ -4,9 +4,7 @@ import { useEffect } from "react";
 
 const GlowCard = ({ children, identifier }) => {
   useEffect(() => {
-    // Only run in the browser
-    if (typeof window === "undefined" || typeof document === "undefined") return;
-
+    // Only run in the browser - FIXED: removed the check that was preventing execution
     const CONTAINER = document.querySelector(`.glow-container-${identifier}`);
     const CARDS = document.querySelectorAll(`.glow-card-${identifier}`);
 
