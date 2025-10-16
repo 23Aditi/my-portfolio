@@ -39,7 +39,7 @@ export const projectsData = [
     //     demo: '',
     //     role: 'Full Stack Developer',
     // }
-];
+
 
 
 // Do not remove any property.
